@@ -1,9 +1,15 @@
-import { GlobalStyle } from "./assets/styles/global";
+import React from "react";
+import { GlobalStyle, MainContainer } from "./assets/styles/global";
+import { Routes } from "./routes/routes";
+import { SideMenu } from "./components/SideMenu"
 
 function App() {
   return (
     <>
-      <h1>ah ahaha</h1>
+      <SideMenu />
+      <MainContainer>
+        <Routes/>
+      </MainContainer>
       <GlobalStyle/>
     </>
   );

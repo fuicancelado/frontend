@@ -1,6 +1,6 @@
-import { Container } from './styles'
+import { Container } from './styles';
 
-export function Error() {
+export function NotFound() {
     return (
         <Container>
             <h1>404</h1>
