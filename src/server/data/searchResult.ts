@@ -67,9 +67,9 @@ export const searchResult_bolsonaro = {
 export const searchResult_lula = {
     "tones": [
         {
-            "score": 0.647322,
-            "tone_id": "anger",
-            "tone_name": "Anger"
+            "score": 0.847322,
+            "tone_id": "joy",
+            "tone_name": "Joy"
         },
         {
             "score": 0.724923,
@@ -78,8 +78,13 @@ export const searchResult_lula = {
         },
         {
             "score": 0.998976,
-            "tone_id": "tentative",
-            "tone_name": "Tentative"
+            "tone_id": "sadness",
+            "tone_name": "Sadness"
+        },
+        {
+            "score": 0.998976,
+            "tone_id": "analytical",
+            "tone_name": "Analytical"
         },
     ],
     "twitter_comments": LulaTwitterResult

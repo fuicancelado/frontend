@@ -105,9 +105,9 @@ export const Home: FC = () => {
                             </CommentItem>
                         ))}
                     </CommentsList>
+                    <ReactTooltip />
                 </CommentsContainer>
             }
-            <ReactTooltip />
         </Container>
     )
 }
