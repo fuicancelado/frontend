@@ -1,11 +1,17 @@
+import {ThemeProvider} from 'styled-components';
+import light from './assets/styles/themes/light'
+ 
 import { GlobalStyle } from "./assets/styles/global";
+import Header from "./components/header";
 
 function App() {
   return (
+    <ThemeProvider theme={light}>
     <>
-      <h1>ah ahaha</h1>
+      <Header/>
       <GlobalStyle/>
     </>
+    </ThemeProvider>
   );
 }
 
