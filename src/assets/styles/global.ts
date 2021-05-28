@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
         --gray-800: #2D2D2D;    //Applciations Background
         --green-400: #11AC84;   //Green buttons
         --red-700: #EE5353;     
-        --midnight-blue-900: #323342; //Containers background
         --midnight-blue-600: #363452; //Containers background
+        --midnight-blue-900: #323342; //Containers background
         --blue-500: #5B44DE;    
     }
 
@@ -66,11 +66,15 @@ export const GlobalStyle = createGlobalStyle`
     .row {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-gap: 20px;
+        grid-gap: 10px;
     }
 
     .col-2 {
         grid-column: span 2;
+    }
+
+    .col-6 {
+        grid-column: span 6;
     }
 
     .react-modal-overlay {
@@ -89,6 +93,8 @@ export const GlobalStyle = createGlobalStyle`
     .react-modal-content {
         width: 100%;
         max-width:576px;
+        height: 100%;
+        max-height: 576px;
         background: var(--midnight-blue-900);
         padding: 3rem;
         position: relative;
@@ -111,5 +117,15 @@ export const GlobalStyle = createGlobalStyle`
         &:hover {
             filter: brightness(0.8);
         }
+    }
+
+    .badge {
+        border-radius: 5px;
+        background: var(--gray-700);
+        padding: 0 .25rem;
+    }
+
+    .cursorHand {
+        cursor: pointer;
     }
 `

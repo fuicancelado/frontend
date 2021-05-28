@@ -8,7 +8,8 @@ export const Container = styled.div`
 
     background: var(--midnight-blue-900);
     border-radius: 5rem;
-    border: solid 1px var(--red-700);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+    //border: solid 1px var(--red-700);
 
     input {
         width: 100%;        

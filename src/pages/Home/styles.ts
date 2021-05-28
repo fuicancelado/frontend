@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
+    padding: 1rem;
     margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +26,8 @@ export const TitleContainer = styled.div`
     margin-bottom: .5rem;
     background: var(--gray-700);
     border-radius: 5px;
-
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +39,46 @@ export const TitleContainer = styled.div`
     }
 `;
 
+export const CancelometroContainer = styled.section`
+    width: 80%;
+    margin-top: 2rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+    padding: .5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    span {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &.highScore {
+        background: var(--green-400);
+        border: 3.5px solid #0e8f6e;
+        
+        svg, span {
+            color: #0e8f6e;
+        }
+    }
+
+    &.lowScore {
+        background: var(--red-700);
+        border: 3.5px solid #b02b2b;
+        
+        svg, span {
+            color: #b02b2b;
+        }
+    }
+`;
+
 
 export const ToneContainer = styled.section`
     width: 80%;
@@ -42,6 +86,7 @@ export const ToneContainer = styled.section`
     border-radius: 5px;
     padding: 1rem;
     margin-top: 2rem;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
 
     display: flex;
     flex-direction: column;
@@ -52,48 +97,80 @@ export const ToneContainer = styled.section`
     }
 
     .confidentContainer {
-        background: #996943;
+        background: #5B44DE;
     }
     .joyContainer {
-        background: var(--green-400);
+        background: #11AC84;
     }
     .tentativeContainer {
-        background: #9e9738;
+        background: #FEF02E;
     }
     .analyticalContainer {
-        background: var(--gray-700);
+        background: #BAB9D2;
     }
     .fearContainer {
-        background: #000;
+        background: #56814F;
     }
     .angerContainer {
         background: var(--red-700);
     }
     .sadnessContainer {
-        background: #3F4375;
+        background: #4C54A7;
     }
 `
 export const ToneList = styled.ul`
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const ToneCard = styled.li`
-    font-size: 1.8rem;
-
+    width: 15%;
     height: 6.5rem;
     border-radius: 15px;
+    font-size: 1.8rem;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
+
+    & + & {
+        margin-left: .5rem;
+    }
+
+    span {
+        color: var(--midnight-blue-900);
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
 
     svg { 
         width: 40px;
         height: 40px;
-        color: var(--gray-800);
+        color: var(--midnight-blue-900);
+    }
+    &.toneDisabled {
+        opacity: .3;
     }
 `
+
+export const DescriptionContainer = styled.div`
+    svg { 
+        margin-left: .25rem;
+        width:15px;
+        height:15px;
+    }
+`;
+
+export const ScoreContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 export const CommentsContainer = styled.div`
     width: 80%;
@@ -112,35 +189,130 @@ export const CommentsContainer = styled.div`
 `;
 
 export const CommentsList = styled.ul`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 `;
 
 export const CommentItem = styled.li`
     width: 100%;
     border-radius: .5rem;
-    background: var(--blue-500);    
-
+    background: var(--gray-700);    
+    height: fit-content;
+    
     display: flex;
     align-items: center;
     
     font-size: .8rem;
+
+    h5 { 
+        font-size: .9rem;
+        color: var(--gray-200);
+    }
+
+    span {
+        font-size: .7rem;
+    }
 
     .imgContainer {
         display: flex;
         align-items: center;
 
         img {
-            width: 50px;
-            height: 50px;
-            margin-right: .25rem;
+            width: 100px;
+            height: 100px;
             border-radius: .5rem 0 0 .5rem;
         }
     }
 
-    & + li {
-        margin-top: .5rem;
+    .infoContainer {
+        width: 100%;
+        padding: 0 .25rem;
     }
+
+    .commentText {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .commentItemFooter {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .badgeContainer {
+        display: flex;
+    }  
+
+    .confidentBadge {
+        background: #5B44DE;
+    }
+
+    .badge  + .badge{
+        margin-left: .25rem;
+    }
+
+    .joyBadge {
+        background: #11AC84;
+    }
+
+    .tentativeBadge {
+        background: #FEF02E;
+    }
+
+    .analyticalBadge {
+        background: #BAB9D2;
+    }
+
+    .fearBadge {
+        background: #56814F;
+    }
+
+    .angerBadge {
+        background: var(--red-700);
+    }
+
+    .sadnessBadge {
+        background: #4C54A7;
+    }  
+`;
+
+export const ToneDescriptionContainer = styled.section`
+    height: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &.confidentBorder {
+        border: 3px solid #5B44DE;
+    }
+
+    &.joyBorder {
+        border: 3px solid #11AC84;
+    }
+
+    &.tentativeBorder {
+        border: 3px solid #FEF02E;
+    }
+
+    &.analyticalBorder {
+        border: 3px solid #BAB9D2;
+    }
+
+    &.fearBorder {
+        border: 3px solid #56814F;
+    }
+
+    &.angerBorder {
+        border: 3px solid var(--red-700);
+    }
+
+    &.sadnessBorder {
+        border: 3px solid #4C54A7;
+    }   
 `;
