@@ -18,7 +18,7 @@ export function Loading({ setIsLoading, isLoading, result }: LoadingProps) {
     useEffect(() => {
         if(result.cancelometer){
             setIsCancelado(IsCancelado(result.cancelometer.balance));
-            setCancelometer(isCancelado ? (result.cancelometer.balance-1) *100 : (1-result.cancelometer.balance) *100)
+            setCancelometer(result.cancelometer.balance)
         }
     },[result]);
 
@@ -42,7 +42,7 @@ export function Loading({ setIsLoading, isLoading, result }: LoadingProps) {
                     </>
             : result.cancelometer &&
                     <CancelometroContainer>
-                        <h3>{RenderCancelometerText(isCancelado!)} ({cancelometer.toFixed(2)}%)</h3>
+                        <h3>{RenderCancelometerText(isCancelado!)}</h3>
 
                         <div className="maisDetalhes" onClick={() => handleDetalhesClick()}>
                             <span>Mais detalhes</span>
